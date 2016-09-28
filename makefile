@@ -1,12 +1,12 @@
-SOURCES = $(wildcard *.s)
-OBJECTS = $(SOURCES:.s=.o)
+SOURCES = $(wildcard *.asm)
+OBJECTS = $(SOURCES:.asm=.o)
 EXECUTABLES = $(OBJECTS:.o=)
 
 
 # Generic rule
 # $< is the first dependency name
 # $@ is the target filename
-%.o: %.s
+%.o: %.asm
 	as $< -o $@
 
 default: $(OBJECTS)
